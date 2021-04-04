@@ -38,6 +38,6 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${[ DOCKER_USER }}/${{ IMAGE_REPO }}:latest
+          tags: ${{ env.DOCKER_USER }}/${{ env.IMAGE_REPO }}:latest
           platforms: linux/amd64,linux/arm64
 
