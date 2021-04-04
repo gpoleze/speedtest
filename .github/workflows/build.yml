@@ -10,11 +10,9 @@ jobs:
     runs-on: ubuntu-latest
       # Envs
     env:
-      RELEASE_VERSION: ${GITHUB_SHA::8}
+      RELEASE_VERSION: ${{ $GITHUB_SHA::8 }}
       DOCKER_USER: gpoleze
       IMAGE_REPO: speedtest
-      DOCKER_HUB_ACCESS_TOKEN: ${secrets.DOCKER_HUB_ACCESS_TOKEN}
-      DOCKER_HUB_USERNAME: ${secrets.DOCKER_HUB_USERNAME}
     steps:
       # Checkout repo
       - name: checkout code
@@ -23,8 +21,8 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
-          username: ${DOCKER_HUB_ACCESS_TOKEN}
-          password: ${DOCKER_HUB_USERNAME}
+          username: ${secrets.DOCKER_HUB_USERNAME}
+          password: ${secrets.DOCKER_HUB_ACCESS_TOKEN}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
