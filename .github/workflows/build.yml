@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
       # Envs
     env:
-      RELEASE_VERSION: ${{ git rev-parse --short "$GITHUB_SHA" }}
+      RELEASE_VERSION: ${{ $(git rev-parse --short "$GITHUB_SHA") }}
       DOCKER_USER: gpoleze
       IMAGE_REPO: speedtest
       DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
