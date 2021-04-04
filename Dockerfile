@@ -1,3 +1,3 @@
-FROM busybox
+FROM alpine
 
 RUN apk add speedtest-cli
