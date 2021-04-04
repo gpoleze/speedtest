@@ -17,6 +17,9 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v2
 
+      - name: Set up QEMU for multi-arch build
+        uses: docker/setup-qemu-action@v1
+
       - name: define RELEASE_VERSION env variable
         run: echo "RELEASE_VERSION=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
 
