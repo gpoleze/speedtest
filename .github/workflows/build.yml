@@ -38,6 +38,6 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: "$DOCKER_USER/$IMAGE_REPO:latest,$DOCKER_USER/$IMAGE_REPO:$RELEASE_VERSION"
+          tags: "${DOCKER_USER}/${IMAGE_REPO}:latest","${DOCKER_USER}/${IMAGE_REPO}:$R{ELEASE_VERSION}"
           platforms: linux/amd64,linux/arm64
 
